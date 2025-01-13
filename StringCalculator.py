@@ -15,9 +15,16 @@ class StringCalculator:
             delimiter, numbers = numbers[2:].split("\n", 1)
             # Replace the custom delimiter with commas for processing.
             numbers = numbers.replace(delimiter, ",")
-            
-        # Replace new lines with commas to unify delimiters.
-        numbers = numbers.replace("\n", ",")
         
-        # Split the string by comma, convert to integers, and return their sum.
-        return sum(int(num) for num in numbers.split(",") if num)
+        # Convert the input numbers to a list of integers.
+        nums = [int(num) for num in numbers.split(",") if num]
+        
+        # Identify all negative numbers in the list.
+        negatives = [num for num in nums if num < 0]
+        
+        # If there are negative numbers, raise an exception with their list.
+        if negatives:
+            raise ValueError(f"negative numbers not allowed {','.join(map(str, negatives))}")
+            
+        # Return the sum of all valid numbers.
+        return sum(nums)
