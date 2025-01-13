@@ -29,6 +29,11 @@ class TestStringCalculator(unittest.TestCase):
     def test_different_delimiters(self):
         self.assertEqual(StringCalculator.add("//;\n1;2"), 3)
 
+    # Test for negative numbers, expecting a ValueError with a specific message.
+    def test_negative_numbers(self):
+        with self.assertRaises(ValueError) as context:
+            StringCalculator.add("1,-2,-3")
+        self.assertEqual(str(context.exception), "negative numbers not allowed -2,-3")
 
 # Entry point for running the tests.
 if __name__ == "__main__":
