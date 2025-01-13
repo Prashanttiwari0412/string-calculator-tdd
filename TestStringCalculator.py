@@ -25,6 +25,11 @@ class TestStringCalculator(unittest.TestCase):
     def test_new_lines_between_numbers(self):
         self.assertEqual(StringCalculator.add("1\n2,3"), 6)
 
+    # Test for custom delimiters defined in the input string.
+    def test_different_delimiters(self):
+        self.assertEqual(StringCalculator.add("//;\n1;2"), 3)
+
+
 # Entry point for running the tests.
 if __name__ == "__main__":
     unittest.main()
