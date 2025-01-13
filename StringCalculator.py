@@ -7,5 +7,9 @@ class StringCalculator:
         # Return 0 if the input string is empty.
         if not numbers:
             return 0
+
+        # Replace new lines with commas to unify delimiters.
+        numbers = numbers.replace("\n", ",")
+        
         # Split the string by comma, convert to integers, and return their sum.
         return sum(int(num) for num in numbers.split(",") if num)
