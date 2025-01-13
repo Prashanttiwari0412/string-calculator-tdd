@@ -16,6 +16,10 @@ class TestStringCalculator(unittest.TestCase):
     # Test for two comma-separated numbers, expecting their sum.
     def test_two_numbers(self):
         self.assertEqual(StringCalculator.add("1,5"), 6)
+        
+    # Test for multiple comma-separated numbers, expecting their sum.
+    def test_multiple_numbers(self):
+        self.assertEqual(StringCalculator.add("1,2,3,4"), 10)
 
 # Entry point for running the tests.
 if __name__ == "__main__":
